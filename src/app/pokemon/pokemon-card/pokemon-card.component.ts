@@ -8,6 +8,6 @@ import {PokemonDetails} from '../../shared/models/pokemon';
 })
 export class PokemonCardComponent {
   @Input({required:true,})
-  pokemon!: PokemonDetails;
+  pokemonToDisplay!: PokemonDetails;
 
 }

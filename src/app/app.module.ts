@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PokemonComponent } from './pokemon/pokemon/pokemon.component';
 import { PokemonCardComponent } from './pokemon/pokemon-card/pokemon-card.component';
 import {provideHttpClient} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {provideHttpClient} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
   ],
   providers: [
     provideHttpClient()

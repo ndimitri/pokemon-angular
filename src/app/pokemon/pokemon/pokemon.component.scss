@@ -5,7 +5,7 @@
   right: 0; /* Colle la barre à droite */
   height: 100vh; /* Fait la hauteur de la fenêtre */
   width: 20%; /* Définit la largeur de la barre */
-  background-color: #f0f0f0; /* Ajoute un fond pour la barre */
+  background-color: #d21717; /* Ajoute un fond pour la barre */
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
   display: flex;
   flex-direction: column;
@@ -46,11 +46,11 @@
 .pokemon-list-elem img {
   width: 100px; /* Taille uniforme pour les images */
   height: auto;
-  margin-top: -20px; /* Permet à l'image de "déborder" légèrement vers le haut */
+  margin-top: -18px; /* Permet à l'image de "déborder" légèrement vers le haut */
 }
 
 .pokemon-list-elem p {
-  font-size: 14px;
+  font-size: 19px;
   font-weight: bold;
   color: #333;
   margin-top: 10px;

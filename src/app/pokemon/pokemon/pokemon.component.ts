@@ -19,10 +19,9 @@ export class PokemonComponent {
   getPokemons(url: string): void {
     this._pokemonService.getPokemons(url).subscribe({
       next: (res: PokemonResult) =>{
-        console.log(res)
         this.pokemonResult = res;
         this.pokemonResult.results.forEach((pokemonDTO: PokemonDTO) => {
-          this.setDefaultPokemonSprite(pokemonDTO.url, pokemonDTO);
+          this.setSimplePokemonImage(pokemonDTO.url, pokemonDTO);
         })
       } ,
       error: (error: Error) => {
@@ -31,11 +30,22 @@ export class PokemonComponent {
     })
   }
 
+  getPokemon(url: string): void {
+    this._pokemonService.getPokemon(url).subscribe({
+      next: (res: PokemonDetails) =>{
+        this.pokemonToDisplay = res;
+      },
+      error: (error: Error) => {
+        console.log(error);
+      }
+    })
+  }
 
-  setDefaultPokemonSprite(url: string, pokemon : PokemonDTO): void{
+
+  setSimplePokemonImage(url: string, pokemon : PokemonDTO): void{
     this._pokemonService.getPokemon(url).subscribe({
       next: (pokemonDetails: PokemonDetails) =>{
-         pokemon.basicSprite = pokemonDetails.sprites.front_default;
+         pokemon.simplePokemonImage = pokemonDetails.sprites.front_default;
       } ,
       error: (error: Error) => {
         console.log(error);
