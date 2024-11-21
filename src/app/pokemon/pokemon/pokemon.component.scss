@@ -1,0 +1,70 @@
+/* Barre latérale collée à droite */
+.sidebar {
+  position: fixed; /* Fixe la position sur l'écran */
+  top: 0;
+  right: 0; /* Colle la barre à droite */
+  height: 100vh; /* Fait la hauteur de la fenêtre */
+  width: 20%; /* Définit la largeur de la barre */
+  background-color: #f0f0f0; /* Ajoute un fond pour la barre */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto; /* Permet le défilement si le contenu dépasse la hauteur */
+}
+
+.pokemon-list-section{
+  display: flex;
+  flex-direction: column; /* Les boutons et la liste s'empilent verticalement */
+  align-items: center; /* Centre toutes les cartes horizontalement */
+  gap: 10px; /* Ajoute un espacement entre les cartes */
+}
+
+.pokemon-list {
+  width: 100%; /* Les cartes occuperont toute la largeur possible */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre les éléments à l'intérieur */
+}
+
+
+.pokemon-list-elem {
+  width: 150px; /* Largeur fixe pour chaque carte */
+  height: 200px; /* Hauteur uniforme */
+  background-color: lightgray; /* Couleur de fond des cartes */
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Coins arrondis pour un look agréable */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le contenu horizontalement */
+  justify-content: center; /* Centre le contenu verticalement */
+  overflow: hidden; /* Cache les débordements si nécessaires */
+  text-align: center; /* Centre le texte */
+  position: relative; /* Nécessaire pour les ajustements de débordement */
+}
+
+.pokemon-list-elem img {
+  width: 100px; /* Taille uniforme pour les images */
+  height: auto;
+  margin-top: -20px; /* Permet à l'image de "déborder" légèrement vers le haut */
+}
+
+.pokemon-list-elem p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  white-space: nowrap; /* Empêche les noms longs de se casser en plusieurs lignes */
+  overflow: hidden; /* Cache les noms trop longs */
+  text-overflow: ellipsis; /* Ajoute "..." pour les noms coupés */
+}
+
+.meta-button {
+  margin: 5px 0;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
