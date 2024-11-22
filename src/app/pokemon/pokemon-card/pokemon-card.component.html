@@ -5,7 +5,8 @@
   <div class="pokeball" id="pokeball"></div>
 
   <!-- Carte du Pokémon -->
-  <div class="pokemon-card">
+<!--  TODO Mettre le if en dehors du div -->
+  <div class="pokemon-card" [ngClass]="pokemonToDisplay?.types[0].type.name">
     @if(pokemonToDisplay){
       <h2>{{ pokemonToDisplay.name | titlecase }}</h2>
       <img
