@@ -7,7 +7,7 @@ import {PokemonDetails} from '../../shared/models/pokemon';
   styleUrl: './pokemon-card.component.scss'
 })
 export class PokemonCardComponent {
-  @Input({required:true,})
-  pokemonToDisplay!: PokemonDetails;
+  @Input({required:false,})
+  pokemonToDisplay?: PokemonDetails;
 
 }

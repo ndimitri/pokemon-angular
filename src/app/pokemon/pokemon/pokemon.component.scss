@@ -1,3 +1,7 @@
+.main-page{
+  background-color: #727d90
+}
+
 /* Barre latérale collée à droite */
 .sidebar {
   position: fixed; /* Fixe la position sur l'écran */
@@ -5,10 +9,11 @@
   right: 0; /* Colle la barre à droite */
   height: 100vh; /* Fait la hauteur de la fenêtre */
   width: 20%; /* Définit la largeur de la barre */
-  background-color: #d21717; /* Ajoute un fond pour la barre */
+  background-color: #CC0000; /* Ajoute un fond pour la barre */
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
   display: flex;
   flex-direction: column;
+  text-align: center;
   padding: 10px;
   overflow-y: auto; /* Permet le défilement si le contenu dépasse la hauteur */
 }
@@ -30,8 +35,8 @@
 
 .pokemon-list-elem {
   width: 150px; /* Largeur fixe pour chaque carte */
-  height: 200px; /* Hauteur uniforme */
-  background-color: lightgray; /* Couleur de fond des cartes */
+  height: 190px; /* Hauteur uniforme */
+  background-color: #B7C5D2; /* Couleur de fond des cartes */
   border: 1px solid #ccc;
   border-radius: 10px; /* Coins arrondis pour un look agréable */
   display: flex;
@@ -41,12 +46,14 @@
   overflow: hidden; /* Cache les débordements si nécessaires */
   text-align: center; /* Centre le texte */
   position: relative; /* Nécessaire pour les ajustements de débordement */
+  cursor: pointer;
+
 }
 
 .pokemon-list-elem img {
   width: 100px; /* Taille uniforme pour les images */
   height: auto;
-  margin-top: -18px; /* Permet à l'image de "déborder" légèrement vers le haut */
+  margin-top: -10px; /* Permet à l'image de "déborder" légèrement vers le haut */
 }
 
 .pokemon-list-elem p {
@@ -59,12 +66,20 @@
   text-overflow: ellipsis; /* Ajoute "..." pour les noms coupés */
 }
 
+.p-button{
+  padding: 5px 10px;
+}
+
+.meta-buttons{
+  display :flex;
+}
+
 .meta-button {
   margin: 5px 0;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 16px;
   border: none;
-  background-color: #ffffff;
+  background-color: #040405;
   border-radius: 5px;
 }

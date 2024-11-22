@@ -15,6 +15,14 @@ export class PokemonComponent {
   constructor(private _pokemonService: PokemonService) {
     this.getPokemons('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0');
   }
+  previous(url: string) :void{
+    this.getPokemons(url);
+  }
+
+  next(url: string) : void {
+    this.getPokemons(url);
+  }
+
 
   getPokemons(url: string): void {
     this._pokemonService.getPokemons(url).subscribe({

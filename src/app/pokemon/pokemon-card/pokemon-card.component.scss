@@ -1,3 +1,42 @@
+.pokeball {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #fff 50%, #f00 50%);
+  border: 3px solid black;
+  position: absolute;
+  bottom: 10%;
+  cursor: pointer;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.pokeball::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid black;
+  z-index: 2;
+}
+
+.pokeball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  background: black;
+  z-index: 1;
+}
+
+
 
 /* Conteneur global */
 .pokedex-container {
@@ -5,15 +44,14 @@
   justify-content: center; /* Centrer horizontalement */
   align-items: center; /* Centrer verticalement */
   height: 100vh; /* Pleine hauteur de la fenêtre */
-  background-color: #f0f8ff; /* Couleur de fond douce */
-  margin: 0;
-  padding: 0;
+  background-image: url("/assets/images/pokeball.webp");
+  background-size: cover;
+  background-position: right 10% bottom 45%;
 }
-
 /* Carte Pokémon */
 .pokemon-card {
-  background-color: #f7f7f7; /* Couleur de carte claire */
-  border: 3px solid #ffcb05; /* Bordure jaune Pokémon */
+  background-color: #b7abab; /* Couleur de carte claire */
+  border: 3px solid black; /* Bordure jaune Pokémon */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Effet d'ombre */
   border-radius: 15px; /* Coins arrondis */
   padding: 20px;
@@ -33,6 +71,9 @@
 /* Détails du Pokémon */
 .pokemon-details {
   margin-top: 15px;
+  padding: 5px;
+  background-color: #727d90;
+  border-radius: 10px;
 }
 
 /* Types de Pokémon */
@@ -50,7 +91,7 @@
 
 /* Couleurs dynamiques basées sur les types */
 .type.grass {
-  background-color: #78c850;
+  background-color: #7AC74C;
 }
 
 .type.fire {
@@ -115,6 +156,14 @@
 
 .type.fairy {
   background-color: #ee99ac;
+}
+
+.type.normal {
+  background-color: #A8A77A;
+}
+
+.type.unknown{
+  background-color: #727d90;
 }
 
 /* Hover pour effet dynamique */

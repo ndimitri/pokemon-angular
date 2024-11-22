@@ -1,20 +1,19 @@
 <div class="main-page">
-  @if (pokemonToDisplay){
+
     <app-pokemon-card [pokemonToDisplay]="pokemonToDisplay"></app-pokemon-card>
-  } @else {
-    <p>No pokemon selected</p>
-  }
+
 </div>
 
 <div class="sidebar">
   <h1>Pokedex</h1>
   <section class="pokemon-list-section">
-    @if(pokemonResult.previous){
-      <button class="meta-button">⬅️</button>
-    }
-    @if (pokemonResult.next){
-      <button class="meta-button">➡️</button>
-    }
+    <div class="meta-buttons">
+      @if(pokemonResult.previous){
+        <button (click)="previous(pokemonResult.previous)" class="meta-button">⬅️</button>
+      }
+      @if (pokemonResult.next){
+        <button (click)="next(pokemonResult.next)" class="meta-button">➡️</button>}
+    </div>
 
     @for(pokemonDTO of pokemonResult.results; track pokemonDTO.name){
       <div (click)="getPokemon(pokemonDTO.url)" class="pokemon-list">

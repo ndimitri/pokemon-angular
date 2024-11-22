@@ -1,52 +1,54 @@
-<!--<div class="pokedex-container">-->
-<!--  &lt;!&ndash; Left section for detailed PokemonCard &ndash;&gt;-->
-<!--  <div class="pokemon-card" >-->
-<!--    <h2>{{ pokemonToDisplay.name | titlecase }}</h2>-->
-<!--    <img [src]="pokemonToDisplay.sprites.other.dream_world.front_default" alt="{{ pokemonToDisplay.name }}" />-->
-<!--    <div class="pokemon-details" >-->
-<!--      <p><strong>Height:</strong> {{ pokemonToDisplay.height }}</p>-->
-<!--      <p><strong>Weight:</strong> {{ pokemonToDisplay.weight }}</p>-->
-<!--      <div class="pokemon-types">-->
-<!--        <strong>Type(s):</strong>-->
-<!--        <span *ngFor="let type of pokemonToDisplay.types" class="type" [ngClass]="type.type.name">-->
-<!--          {{ type.type.name | titlecase }}-->
-<!--        </span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div *ngIf="!pokemonToDisplay" class="no-pokemon">-->
-<!--    <p>No pokemon selected</p>-->
-<!--  </div>-->
-
-<!--</div>-->
-
 
 <body>
 <div class="pokedex-container">
+
+  <div class="pokeball" id="pokeball"></div>
+
   <!-- Carte du Pokémon -->
-  <div
-    class="pokemon-card"
-  >
-    <h2>{{ pokemonToDisplay.name | titlecase }}</h2>
-    <img
-      [src]="pokemonToDisplay.sprites.other.dream_world.front_default"
-      alt="{{ pokemonToDisplay.name }}"
-    />
-    <div class="pokemon-details">
-      <p><strong>Height:</strong> {{ pokemonToDisplay.height*10}} cm</p>
-      <p><strong>Weight:</strong> {{ pokemonToDisplay.weight/10 }} kg</p>
-      <div class="pokemon-types">
-        <strong>Type(s):</strong>
-        <span
-          *ngFor="let type of pokemonToDisplay.types"
-          class="type"
-          [ngClass]="type.type.name"
-        >
+  <div class="pokemon-card">
+    @if(pokemonToDisplay){
+      <h2>{{ pokemonToDisplay.name | titlecase }}</h2>
+      <img
+        [src]="pokemonToDisplay.sprites.other.dream_world.front_default"
+        alt="{{ pokemonToDisplay.name  }}"
+      />
+      <div class="pokemon-details">
+        <p><strong>Height:</strong> {{ pokemonToDisplay.height*10 ?? '??'}} cm</p>
+        <p><strong>Weight:</strong> {{ pokemonToDisplay.weight/10 ?? '??'}} kg</p>
+
+        <div class="pokemon-types">
+          <strong>Type(s):</strong>
+          <span
+            *ngFor="let type of pokemonToDisplay.types"
+            class="type"
+            [ngClass]="type.type.name"
+          >
             {{ type.type.name | titlecase }}
           </span>
+        </div>
       </div>
-    </div>
+  } @else if(!pokemonToDisplay){
+      <h2>??</h2>
+      <img
+        src="/assets/images/symbol_questionmark.png"
+        alt="no-pokemon"
+      />
+      <div class="pokemon-details">
+        <p><strong>Height:</strong> ?? cm</p>
+        <p><strong>Weight:</strong> ?? kg</p>
+        <div class="pokemon-types">
+          <strong>Type(s):</strong>
+          <span
+            class="type"
+            [ngClass]="'unknown'"
+          >
+            ??
+          </span>
+        </div>
+      </div>
+    }
   </div>
+
 </div>
 </body>
 

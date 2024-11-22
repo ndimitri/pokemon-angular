@@ -7,6 +7,8 @@ import { PokemonComponent } from './pokemon/pokemon/pokemon.component';
 import { PokemonCardComponent } from './pokemon/pokemon-card/pokemon-card.component';
 import {provideHttpClient} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
+import { ButtonModule} from 'primeng/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import {CommonModule} from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    ButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideHttpClient()
