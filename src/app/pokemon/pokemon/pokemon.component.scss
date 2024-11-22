@@ -8,15 +8,107 @@
   top: 0;
   right: 0; /* Colle la barre à droite */
   height: 100vh; /* Fait la hauteur de la fenêtre */
-  width: 20%; /* Définit la largeur de la barre */
-  background-color: #CC0000; /* Ajoute un fond pour la barre */
+  //width: 20%; /* Définit la largeur de la barre */
+  //background-color: #CC0000; /* Ajoute un fond pour la barre */
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
   display: flex;
   flex-direction: column;
   text-align: center;
   padding: 10px;
   overflow-y: auto; /* Permet le défilement si le contenu dépasse la hauteur */
+  width: 300px;
+  background-color: #f00; // Exemple, ta couleur de fond
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0); // Par défaut visible
 }
+
+.pokeball {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to bottom, #ad0d0d 50%, #fff 50%);
+  border: 5px solid #000;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  //animation: spin 1.5s ease-in;
+  position: absolute;
+  bottom: 10%;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Douce transition pour le retour */
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.pokeball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Animation de roulement */
+.pokeball.roll-front {
+  animation: roll 1s ease-in-out;
+}
+
+@keyframes roll {
+  0% {
+    transform:  rotate(0deg); /* Départ à l'état normal */
+  }
+  50% {
+    transform:  rotate(180deg); /* Mouvement de translation et rotation */
+  }
+  100% {
+    transform:  rotate(360deg); /* Arrêt avec un autre mouvement de translation et rotation */
+  }
+}
+
+
+
+.sidebar.closed {
+  transform: translateX(100%); // Cache la sidebar en la déplaçant hors de l'écran
+  transition: transform 0.9s ease-in-out;
+}
+
+.toggle-button {
+  //position: fixed;
+  top: 10px;
+  z-index: 1000;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out; // Transition fluide
+
+
+  &.open{
+    //left: calc(100% - 320px); // Bouton à gauche de la liste (ajuste selon largeur sidebar)
+    //transform: translateX(-10px); // Légère animation vers la gauche
+  }
+
+  &.closed{
+
+    transform: translateX(-100%); // Aucune translation
+    transition: transform 0.9s ease-in-out;
+    right: 10px; // Bouton collé au bord droit
+  }
+}
+
 
 .pokemon-list-section{
   display: flex;

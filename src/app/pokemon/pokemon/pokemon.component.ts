@@ -9,6 +9,9 @@ import {PokemonService} from '../services/pokemon.service';
 })
 export class PokemonComponent {
 
+  isSidebarOpen: boolean = true;
+  isRolling = false; // Pour suivre si la Pokéball doit rouler
+
   pokemonResult! : PokemonResult;
   pokemonToDisplay?: PokemonDetails;
 
@@ -62,5 +65,23 @@ export class PokemonComponent {
 
     })
   }
+
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen; // Inverse l'état
+    this.triggerPokeballRoll();
+  }
+
+  triggerPokeballRoll(): void {
+    // Démarre l'animation de la Pokéball
+    this.isRolling = true;
+
+    // Après l'animation (1s ici), on réinitialise la classe "roll"
+    setTimeout(() => {
+      this.isRolling = false;
+    }, 1000); // Durée de l'animation
+  }
+
+
 
 }

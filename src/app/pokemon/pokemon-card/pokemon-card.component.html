@@ -6,49 +6,55 @@
 
   <!-- Carte du Pokémon -->
 <!--  TODO Mettre le if en dehors du div -->
-  <div class="pokemon-card" [ngClass]="pokemonToDisplay?.types[0].type.name">
-    @if(pokemonToDisplay){
-      <h2>{{ pokemonToDisplay.name | titlecase }}</h2>
-      <img
-        [src]="pokemonToDisplay.sprites.other.dream_world.front_default"
-        alt="{{ pokemonToDisplay.name  }}"
-      />
-      <div class="pokemon-details">
-        <p><strong>Height:</strong> {{ pokemonToDisplay.height*10 ?? '??'}} cm</p>
-        <p><strong>Weight:</strong> {{ pokemonToDisplay.weight/10 ?? '??'}} kg</p>
 
-        <div class="pokemon-types">
-          <strong>Type(s):</strong>
-          <span
-            *ngFor="let type of pokemonToDisplay.types"
-            class="type"
-            [ngClass]="type.type.name"
-          >
+    @if(pokemonToDisplay){
+      <div class="pokemon-card" [ngClass]="pokemonToDisplay.types[0].type.name">
+        <h2>{{ pokemonToDisplay.name | titlecase }}</h2>
+        <img
+          [src]="pokemonToDisplay.sprites.other.dream_world.front_default"
+          alt="{{ pokemonToDisplay.name  }}"
+        />
+        <div class="pokemon-details">
+          <p><strong>Height:</strong> {{ pokemonToDisplay.height*10 ?? '??'}} cm</p>
+          <p><strong>Weight:</strong> {{ pokemonToDisplay.weight/10 ?? '??'}} kg</p>
+
+          <div class="pokemon-types">
+            <strong>Type(s):</strong>
+            <span
+              *ngFor="let type of pokemonToDisplay.types"
+              class="type"
+              [ngClass]="type.type.name"
+            >
             {{ type.type.name | titlecase }}
           </span>
+          </div>
         </div>
       </div>
+
   } @else if(!pokemonToDisplay){
-      <h2>??</h2>
-      <img
-        src="/assets/images/symbol_questionmark.png"
-        alt="no-pokemon"
-      />
-      <div class="pokemon-details">
-        <p><strong>Height:</strong> ?? cm</p>
-        <p><strong>Weight:</strong> ?? kg</p>
-        <div class="pokemon-types">
-          <strong>Type(s):</strong>
-          <span
-            class="type"
-            [ngClass]="'unknown'"
-          >
+      <div class="pokemon-card" [ngClass]="'unknown'">
+        <h2>??</h2>
+        <img
+          src="/assets/images/symbol_questionmark.png"
+          alt="no-pokemon"
+        />
+        <div class="pokemon-details">
+          <p><strong>Height:</strong> ?? cm</p>
+          <p><strong>Weight:</strong> ?? kg</p>
+          <div class="pokemon-types">
+            <strong>Type(s):</strong>
+            <span
+              class="type"
+              [ngClass]="'unknown'"
+            >
             ??
           </span>
-        </div>
+          </div>
+      </div>
+
       </div>
     }
-  </div>
+
 
 </div>
 </body>

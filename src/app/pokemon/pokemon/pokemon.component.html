@@ -4,28 +4,58 @@
 
 </div>
 
-<div class="sidebar">
-  <h1>Pokedex</h1>
-  <section class="pokemon-list-section">
-    <div class="meta-buttons">
-      @if(pokemonResult.previous){
-        <button (click)="previous(pokemonResult.previous)" class="meta-button">⬅️</button>
-      }
-      @if (pokemonResult.next){
-        <button (click)="next(pokemonResult.next)" class="meta-button">➡️</button>}
+<!--&lt;!&ndash; Bouton pour ouvrir/fermer la sidebar &ndash;&gt;-->
+<!--<div class="pokeball toggle-button" id="pokeball"-->
+<!--     (click)="toggleSidebar()"-->
+<!--     [class.open]="isSidebarOpen"-->
+<!--     [class.closed]="!isSidebarOpen"-->
+<!--     [ngClass]="{'roll-front' : isRolling}">-->
+
+<!--&lt;!&ndash;  <button class="toggle-button" (click)="toggleSidebar()" [class.open]="isSidebarOpen" [class.closed]="!isSidebarOpen" >&ndash;&gt;-->
+<!--&lt;!&ndash;    {{ isSidebarOpen ? '❌ Close' : '📂 Open' }}&ndash;&gt;-->
+<!--&lt;!&ndash;  </button>&ndash;&gt;-->
+
+<!--</div>-->
+
+
+  <div class="sidebar" [class.closed]="!isSidebarOpen">
+    <!-- Bouton pour ouvrir/fermer la sidebar -->
+    <div class="pokeball toggle-button" id="pokeball"
+         (click)="toggleSidebar()"
+         [class.open]="isSidebarOpen"
+         [class.closed]="!isSidebarOpen"
+         [ngClass]="{'roll-front' : isRolling}">
+
+      <!--  <button class="toggle-button" (click)="toggleSidebar()" [class.open]="isSidebarOpen" [class.closed]="!isSidebarOpen" >-->
+      <!--    {{ isSidebarOpen ? '❌ Close' : '📂 Open' }}-->
+      <!--  </button>-->
+
     </div>
 
-    @for(pokemonDTO of pokemonResult.results; track pokemonDTO.name){
-      <div (click)="getPokemon(pokemonDTO.url)" class="pokemon-list">
-        <div class="pokemon-list-elem">
-          <p>{{pokemonDTO.name | titlecase}}</p>
-          <img [src]="pokemonDTO.simplePokemonImage" [alt]="pokemonDTO.name">
-        </div>
 
+    <h1>Pokedex</h1>
+    <section class="pokemon-list-section">
+      <div class="meta-buttons">
+        @if(pokemonResult.previous){
+          <button (click)="previous(pokemonResult.previous)" class="meta-button">⬅️</button>
+        }
+        @if (pokemonResult.next){
+          <button (click)="next(pokemonResult.next)" class="meta-button">➡️</button>}
       </div>
-    }
 
-  </section>
-</div>
+      @for(pokemonDTO of pokemonResult.results; track pokemonDTO.name){
+        <div (click)="getPokemon(pokemonDTO.url)" class="pokemon-list">
+          <div class="pokemon-list-elem">
+            <p>{{pokemonDTO.name | titlecase}}</p>
+            <img [src]="pokemonDTO.simplePokemonImage" [alt]="pokemonDTO.name">
+          </div>
+
+        </div>
+      }
+
+    </section>
+  </div>
+
+
 
 
